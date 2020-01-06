@@ -20,6 +20,8 @@ external_box_z = height;
 lip_x = 10;
 lip_z = 20;
 
+ridge_x = 1.5;
+ridge_side = ridge_x/sin(45);
 
 difference() {
     // Main cube
@@ -44,6 +46,19 @@ difference() {
 translate([0, 0, height - fudge])
 cube([hole_outside_width + wall_thickness*2, hole_depth + wall_thickness*2, top_depth]);
 
+module ridge() {
+    translate([0, external_box_y/2, ridge_x])
+    rotate([0, 45, 0])
+    cube([ridge_side, external_box_y, ridge_side], center=true);
+}
+
 // Top part to clip on
-translate([external_box_x/2 - lip_x/2, 0, height + top_depth - fudge*2])
-cube([lip_x, external_box_y, lip_z]);
+translate([external_box_x/2 - lip_x/2, 0, height + top_depth - fudge*2]) {
+    cube([lip_x, external_box_y, lip_z]);
+    
+    translate([0, 0, lip_z/2])
+        ridge();
+        
+    translate([lip_x, 0, lip_z/2])
+        ridge();
+}
