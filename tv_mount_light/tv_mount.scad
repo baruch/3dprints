@@ -2,7 +2,7 @@ side_hole_thickness = 3;
 back_hole_thickness = 4;
 
 hole_inside_width = 35;
-hole_outside_width = 41.1;
+hole_outside_width = 41.3;
 
 hole_depth = 25;
 top_depth = 5;
