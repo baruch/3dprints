@@ -9,7 +9,7 @@ top_depth = 5;
 
 wall_thickness = 5;
 
-height = 35; // Increase for stability
+height = 30; // Increase for stability
 extra = 0.1;
 fudge = 0.01;
 
@@ -18,7 +18,8 @@ external_box_y = hole_depth + wall_thickness*2;
 external_box_z = height;
 
 lip_x = 10;
-lip_z = 30;
+lip_z = 20;
+
 
 difference() {
     // Main cube
